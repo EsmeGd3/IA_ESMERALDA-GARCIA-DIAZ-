@@ -1,5 +1,13 @@
 import cv2 as cv
 import numpy as np 
+
+def escala(imx, escala):
+    width =int(imx.shape[1] * escala / 100)
+    height =int(imx.shape[0] * escala / 100)
+    size = (width, height)
+    im = cv.resize(imx, size, interpolation = cv.INTER_AREA)
+    return im
+
 img = cv.imread('C:\\Users\\Mermelada\\Imagenes\\f1.jpg',0)
 w, h =img.shape[:2]
 img2 = np.ones((w, h), dtype='uint8')*150
